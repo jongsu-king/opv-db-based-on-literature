@@ -1,0 +1,231 @@
+{
+  "package": "opvdb_scidata_release_v1_20260811",
+  "purpose": "Scientific Data review and Zenodo release package",
+  "file_count": 13,
+  "payload_file_count": 11,
+  "manifest_file": "metadata/release_manifest.json",
+  "manifest_note": "The manifest file itself is included in the package but omitted from the checksummed files list to avoid a self-referential checksum.",
+  "files": [
+    {
+      "path": "CITATION.cff",
+      "size": 1600,
+      "sha256": "71807eeb78f798dba261908e55c5ef4687838bddd97b98715244f78dad978b92"
+    },
+    {
+      "path": "DATA_DICTIONARY.md",
+      "size": 5306,
+      "sha256": "ccf700cb7edcffa1e12b58abd389bd63f2ca1cef32b7b6c3718fa0fcfc72fa0e"
+    },
+    {
+      "path": "LICENSE",
+      "size": 364,
+      "sha256": "1684c6c1aa7abb39d4fc98df6137b05eaf425593523819feb579fd50944470eb"
+    },
+    {
+      "path": "README.md",
+      "size": 3652,
+      "sha256": "5687235ea3efbf4aba5cf3ab9d0b04740be7e43eaf0eba33550d5fbebcbc0c7d"
+    },
+    {
+      "path": "THIRD_PARTY_ATTRIBUTION.md",
+      "size": 1264,
+      "sha256": "8b1b62fd4759c0312b38e8f2799ce9947ce85fa07fef3acea79bdd2de108e9ad"
+    },
+    {
+      "path": "data/materials_reference.csv",
+      "size": 868935,
+      "sha256": "2f1224dd8f70b510db9de455a298e5493f8fa99dc6834771092e637096db0a18"
+    },
+    {
+      "path": "data/opv_devices.csv",
+      "size": 19158125,
+      "sha256": "38f05fdad0a9bbdbb40d920a1beb2a99c631b553a4700517855dd024e4e70c06"
+    },
+    {
+      "path": "metadata/SHA256SUMS.txt",
+      "size": 1022,
+      "sha256": "4926f42aea2304e54f0a0a4bfdbb047de5faa8e2851e61baec7f623b8f55eeb6"
+    },
+    {
+      "path": "validation/opv_pce_consistency_records.csv",
+      "size": 3632119,
+      "sha256": "d0ec678b14c8487b72779da04d89912a1b3825615fe507706436ebde3c14136b"
+    },
+    {
+      "path": "validation/opv_quality_tier_field_coverage.csv",
+      "size": 5901,
+      "sha256": "f9aec2942b8fb06c8dea1d37421e6caf7e537565b484a0f2cea0a79d3ef47a9f"
+    },
+    {
+      "path": "validation/opv_quality_tier_rules.json",
+      "size": 1973,
+      "sha256": "5f9783c5f374bc2485b361e9d2a81f1f19adf001a546a8c998f00fd9943354ce"
+    },
+    {
+      "path": "validation/opv_quality_tier_summary.csv",
+      "size": 1843,
+      "sha256": "02e83da06cc2ed941fbc5d3ac8be9d303f819113cc08c3d779365a145ce4ef66"
+    }
+  ],
+  "updated_after_scope_audit_at": "2026-06-29T11:08:53",
+  "scope_audit_removed_records": {
+    "full": 96,
+    "strict_performance_benchmark_removed": 43,
+    "strict_molecular_benchmark_removed": 43,
+    "basis": "internal source_table rejoin; high-confidence simulation/model-prediction, mixed experimental/simulation, conservative computational source-title risks, and ambiguous truncated under-simulated source titles"
+  },
+  "tier_summary": [
+    {
+      "tier": "full",
+      "records": 38849,
+      "unique_dois": 7873,
+      "unique_donors": 5462,
+      "unique_acceptors": 5792,
+      "unique_donor_acceptor_pairs": 13249,
+      "all_four_metrics_records": 37452,
+      "all_four_metrics_percent": 96.40402584365107,
+      "pce_consistency_checkable_records": 37452,
+      "pce_consistency_checkable_percent": 96.40402584365107,
+      "both_smiles_records": 26566,
+      "both_smiles_percent": 68.38271255373368,
+      "pce_records": 38693,
+      "pce_median": 8.65,
+      "pce_mean": 9.114328935146668,
+      "pce_max": 21.96,
+      "pce_error_checked_records": 37452,
+      "pce_error_le_2_records": 32690,
+      "pce_error_le_2_percent": 87.28505820783937,
+      "pce_error_le_5_records": 35478,
+      "pce_error_le_5_percent": 94.72925344440884,
+      "pce_error_le_10_records": 36573,
+      "pce_error_le_10_percent": 97.65299583466837,
+      "pce_error_gt_10_records": 879,
+      "pce_error_median": 0.21375217265354102,
+      "pce_error_p95": 5.233947779387329,
+      "pce_error_max": 49.99138047138048,
+      "device_structure_records": 31885,
+      "device_structure_percent": 82.0741846636979,
+      "solvent_records": 20861,
+      "solvent_percent": 53.69764987515766,
+      "additive_records": 11976,
+      "additive_percent": 30.82704831527195,
+      "active_layer_thickness_records": 10477,
+      "active_layer_thickness_percent": 26.968519138201756,
+      "annealing_temp_records": 9227,
+      "annealing_temp_percent": 23.750933099951094
+    },
+    {
+      "tier": "strict_performance_benchmark",
+      "records": 31360,
+      "unique_dois": 7185,
+      "unique_donors": 4556,
+      "unique_acceptors": 5127,
+      "unique_donor_acceptor_pairs": 11695,
+      "all_four_metrics_records": 31360,
+      "all_four_metrics_percent": 100.0,
+      "pce_consistency_checkable_records": 31360,
+      "pce_consistency_checkable_percent": 100.0,
+      "both_smiles_records": 21720,
+      "both_smiles_percent": 69.26020408163265,
+      "pce_records": 31360,
+      "pce_median": 9.47,
+      "pce_mean": 9.717307389465242,
+      "pce_max": 21.83,
+      "pce_error_checked_records": 31360,
+      "pce_error_le_2_records": 31360,
+      "pce_error_le_2_percent": 100.0,
+      "pce_error_le_5_records": 31360,
+      "pce_error_le_5_percent": 100.0,
+      "pce_error_le_10_records": 31360,
+      "pce_error_le_10_percent": 100.0,
+      "pce_error_gt_10_records": 0,
+      "pce_error_median": 0.13910688405796545,
+      "pce_error_p95": 1.32485316480481,
+      "pce_error_max": 1.9999999999999984,
+      "device_structure_records": 26084,
+      "device_structure_percent": 83.17602040816327,
+      "solvent_records": 16880,
+      "solvent_percent": 53.826530612244895,
+      "additive_records": 10057,
+      "additive_percent": 32.06951530612245,
+      "active_layer_thickness_records": 8434,
+      "active_layer_thickness_percent": 26.894132653061227,
+      "annealing_temp_records": 7582,
+      "annealing_temp_percent": 24.17729591836735
+    },
+    {
+      "tier": "strict_molecular_benchmark",
+      "records": 21720,
+      "unique_dois": 5459,
+      "unique_donors": 2178,
+      "unique_acceptors": 1583,
+      "unique_donor_acceptor_pairs": 5094,
+      "all_four_metrics_records": 21720,
+      "all_four_metrics_percent": 100.0,
+      "pce_consistency_checkable_records": 21720,
+      "pce_consistency_checkable_percent": 100.0,
+      "both_smiles_records": 21720,
+      "both_smiles_percent": 100.0,
+      "pce_records": 21720,
+      "pce_median": 9.26,
+      "pce_mean": 9.69021097723895,
+      "pce_max": 21.83,
+      "pce_error_checked_records": 21720,
+      "pce_error_le_2_records": 21720,
+      "pce_error_le_2_percent": 100.0,
+      "pce_error_le_5_records": 21720,
+      "pce_error_le_5_percent": 100.0,
+      "pce_error_le_10_records": 21720,
+      "pce_error_le_10_percent": 100.0,
+      "pce_error_gt_10_records": 0,
+      "pce_error_median": 0.15330604724617886,
+      "pce_error_p95": 1.3803365987460847,
+      "pce_error_max": 1.9999999999999984,
+      "device_structure_records": 18006,
+      "device_structure_percent": 82.90055248618785,
+      "solvent_records": 11948,
+      "solvent_percent": 55.00920810313076,
+      "additive_records": 7584,
+      "additive_percent": 34.91712707182321,
+      "active_layer_thickness_records": 6589,
+      "active_layer_thickness_percent": 30.336095764272557,
+      "annealing_temp_records": 5390,
+      "annealing_temp_percent": 24.8158379373849
+    }
+  ],
+  "updated_after_minimal_package_restore_at": "2026-07-03T00:42:49",
+  "updated_after_citation_sync_at": "2026-07-03T01:10:05",
+  "updated_after_attribution_correction_at": "2026-07-10T13:17:47+08:00",
+  "attribution_correction": {
+    "file": "THIRD_PARTY_ATTRIBUTION.md",
+    "change": "Corrected the related dataset creator and title to match the cited Zenodo record.",
+    "related_resource_doi": "10.5281/zenodo.16784519"
+  },
+  "updated_after_device_table_consolidation_at": "2026-08-12T14:04:09",
+  "device_table_consolidation": {
+    "change": "Consolidated opv_devices_full.csv, opv_devices_strict_performance_benchmark.csv, and opv_devices_strict_molecular_benchmark.csv into a single data/opv_devices.csv.",
+    "rationale": "The three layers were nested subsets (molecular subset of performance subset of full) with identical field values for shared ids, so the separate files were fully redundant.",
+    "tier_columns": {
+      "in_strict_performance_benchmark": "opv_devices_strict_performance_benchmark.csv",
+      "in_strict_molecular_benchmark": "opv_devices_strict_molecular_benchmark.csv"
+    },
+    "lossless_verification": "Each superseded file was regenerated from data/opv_devices.csv by dropping the two tier columns and filtering on the corresponding flag; all three reproduced the previously published SHA256 digests byte-for-byte.",
+    "superseded_files": [
+      {
+        "path": "data/opv_devices_full.csv",
+        "sha256": "218e2034f895682505815c60ad42e14b0e24f1f1e11740834403660bb3f0487f",
+        "recovered_by": "no filter"
+      },
+      {
+        "path": "data/opv_devices_strict_performance_benchmark.csv",
+        "sha256": "d83c036854a2c1fdf1071ee53330232bfda9d119e4b9e35b670b7271458ae7d0",
+        "recovered_by": "in_strict_performance_benchmark == true"
+      },
+      {
+        "path": "data/opv_devices_strict_molecular_benchmark.csv",
+        "sha256": "068c0137887c9108d6ab62771a750c84b7e34d8c4b32e41880d18b485773a889",
+        "recovered_by": "in_strict_molecular_benchmark == true"
+      }
+    ]
+  }
+}

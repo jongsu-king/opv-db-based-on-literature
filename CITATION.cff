@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+message: Please cite this dataset using the metadata below. This release is a derivative of the original OPV-DB; please cite that work as well (see references).
+title: "OPV-DB (extended): a literature-mined organic photovoltaic device performance database"
+type: dataset
+authors:
+  - family-names: Lim
+    given-names: Jongsu
+    orcid: "https://orcid.org/0009-0000-3395-1484"
+    affiliation: "Department of Physics, Incheon National University"
+version: 1.1.0
+date-released: 2026-08-12
+license: CC-BY-4.0
+abstract: >-
+  An extended OPV-DB release derived from the original OPV-DB by Qiu, J. and
+  merged with an independently literature-mined organic photovoltaic
+  device-record collection. Contains a consolidated single-junction device
+  table with strict performance and strict molecular benchmark tier columns, a
+  material-reference table, and validation summaries.
+references:
+  - type: dataset
+    title: "OPV-DB: a literature-mined organic photovoltaic device performance database"
+    authors:
+      - family-names: Qiu
+        given-names: Jiangjie
+    doi: 10.5281/zenodo.20841543
+    url: "https://doi.org/10.5281/zenodo.20841543"
+    year: 2026
+    license: CC-BY-4.0
+    notes: Original database that this release derives from and extends.
+  - type: dataset
+    title: "Training dataset for predicting PCE of organic solar cells"
+    authors:
+      - family-names: Li
+        given-names: Y.-F.
+    doi: 10.5281/zenodo.16784519
+    url: "https://doi.org/10.5281/zenodo.16784519"
+    year: 2025
+    notes: External resource used for comparison during construction.

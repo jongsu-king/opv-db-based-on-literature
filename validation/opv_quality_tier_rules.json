@@ -1,0 +1,22 @@
+{
+  "generated_for": "opvdb_scidata_release_v1_20260629",
+  "versioning": {
+    "missing_values": "Missing values are represented as empty cells in CSV exports."
+  },
+  "tiers": {
+    "full": "Publication-facing single-junction OPV device records after missing-value cleanup and exclusion of physically non-single-cell, module, tandem/subcell, silicon-hybrid, perovskite/lead-halide hybrid, theoretical/computational/device-simulation, photodiode, Schottky, Voc >2.0 V, and PCE-recomputation error >50% rows.",
+    "strict_performance_benchmark": "Requires normalized DOI, reported donor label, reported acceptor label, PCE, Voc, Jsc, FF, internal source-scope checks, single-junction public-scope checks excluding module, tandem/subcell, silicon-hybrid, perovskite/lead-halide hybrid, theoretical/computational/device-simulation rows, physical-range checks including Voc <=2.0 V, exact duplicate core-record removal on both reported and canonical material labels with core metrics, and PCE recomputation relative error <= 2%.",
+    "strict_molecular_benchmark": "Strict-performance benchmark records with both donor and acceptor SMILES present."
+  },
+  "pce_recomputation": "pce_recomputed = voc * jsc * ff / 100",
+  "public_exports": [
+    "opv_devices.csv"
+  ],
+  "tier_selection": {
+    "note": "The three tiers are nested subsets of the single consolidated export and are selected by column filter rather than by separate files.",
+    "full": "no filter",
+    "strict_performance_benchmark": "in_strict_performance_benchmark == true",
+    "strict_molecular_benchmark": "in_strict_molecular_benchmark == true"
+  },
+  "scope_filter_update_20260629": "Removed residual simulated/model-prediction rows, mixed experimental/simulation rows, additional conservative computational source-title risks, and ambiguous truncated under-simulated source titles identified by rejoining internal source-table titles before public helper columns were omitted."
+}
