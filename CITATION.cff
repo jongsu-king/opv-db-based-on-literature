@@ -17,7 +17,7 @@ abstract: >-
   table with strict performance and strict molecular benchmark tier columns, a
   material-reference table, and validation summaries.
 references:
-  - type: dataset
+  - type: data
     title: "OPV-DB: a literature-mined organic photovoltaic device performance database"
     authors:
       - family-names: Qiu
@@ -27,7 +27,7 @@ references:
     year: 2026
     license: CC-BY-4.0
     notes: Original database that this release derives from and extends.
-  - type: dataset
+  - type: data
     title: "Training dataset for predicting PCE of organic solar cells"
     authors:
       - family-names: Li

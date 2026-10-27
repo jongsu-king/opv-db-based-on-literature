@@ -1,0 +1,37 @@
+{
+  "upload_type": "dataset",
+  "title": "OPV-DB (extended): a literature-mined organic photovoltaic device performance database",
+  "version": "1.1.0",
+  "description": "<p>An extended OPV-DB release derived from the original OPV-DB by Qiu, J. and merged with an independently literature-mined organic photovoltaic device-record collection. Contains a consolidated single-junction device table with strict performance and strict molecular benchmark tier columns, a material-reference table, and validation summaries.</p><p>This release is a derivative of the original OPV-DB (https://doi.org/10.5281/zenodo.20841543, CC BY 4.0); please cite that work as well.</p>",
+  "creators": [
+    {
+      "name": "Lim, Jongsu",
+      "orcid": "0009-0000-3395-1484",
+      "affiliation": "Department of Physics, Incheon National University"
+    }
+  ],
+  "license": "cc-by-4.0",
+  "keywords": [
+    "organic photovoltaics",
+    "organic solar cells",
+    "power conversion efficiency",
+    "literature mining",
+    "materials database"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.20841543",
+      "relation": "isDerivedFrom",
+      "resource_type": "dataset"
+    },
+    {
+      "identifier": "10.5281/zenodo.16784519",
+      "relation": "references",
+      "resource_type": "dataset"
+    }
+  ],
+  "references": [
+    "Qiu, J. (2026). OPV-DB: a literature-mined organic photovoltaic device performance database. Zenodo. https://doi.org/10.5281/zenodo.20841543",
+    "Li, Y.-F. (2025). Training dataset for predicting PCE of organic solar cells. Zenodo. https://doi.org/10.5281/zenodo.16784519"
+  ]
+}
