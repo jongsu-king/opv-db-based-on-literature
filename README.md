@@ -1,5 +1,7 @@
 # OPV-DB Scientific Data Release Package
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23682463.svg)](https://doi.org/10.5281/zenodo.23682463)
+
 This package is the publication-facing OPV-DB release intended for Scientific
 Data review and Zenodo deposition. It is deliberately smaller than the internal
 working release directory.
