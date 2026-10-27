@@ -7,6 +7,22 @@ authors:
     given-names: Jongsu
     orcid: "https://orcid.org/0009-0000-3395-1484"
     affiliation: "Department of Physics, Incheon National University"
+  - family-names: Kim
+    given-names: Kyungsik
+    affiliation: "Hybrid Materials and Optoelectronics Laboratory (H-MOL), Incheon National University"
+  - family-names: Shin
+    given-names: Jaeho
+    affiliation: "Hybrid Materials and Optoelectronics Laboratory (H-MOL), Incheon National University"
+  - family-names: Ji
+    given-names: Hyunsung
+    affiliation: "Hybrid Materials and Optoelectronics Laboratory (H-MOL), Incheon National University"
+  - family-names: Lee
+    given-names: Seungeon
+    affiliation: "Hybrid Materials and Optoelectronics Laboratory (H-MOL), Incheon National University"
+  - family-names: Lee
+    given-names: Jinho
+    affiliation: "Hybrid Materials and Optoelectronics Laboratory (H-MOL), Incheon National University"
+    email: jlee@inu.ac.kr
 version: 1.1.0
 # Concept DOI: always resolves to the latest archived release on Zenodo.
 doi: 10.5281/zenodo.23682463
