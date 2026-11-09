@@ -2,3 +2,6 @@
 ._*
 .Spotlight-V100
 .Trashes
+
+__pycache__/
+*.pyc
