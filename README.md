@@ -27,6 +27,34 @@ Cite both this release and the original OPV-DB when using these data. See
 `CITATION.cff` for this release and `THIRD_PARTY_ATTRIBUTION.md` for other
 external resources used during construction.
 
+## Download
+
+The [latest release](https://github.com/jongsu-king/opv-db-based-on-literature/releases/latest) has two
+ready-made downloads plus `SHA256SUMS.txt`:
+
+| File | Contents |
+|---|---|
+| `opv-db-<version>-csv.zip` | This package: `data/`, `validation/`, `metadata/` (with the frozen checksums), README, data dictionary, licence and citation files |
+| `opv-db-<version>-sqlite.zip` | The same tables in one SQLite database (`opv_devices`, `materials_reference`, the validation tables and `release_info`), with the documentation |
+
+The tables inside both archives are byte-identical to the files of the release tag and match
+`metadata/SHA256SUMS.txt`.
+
+**Staying up to date.** [`scripts/update_opv_db.py`](scripts/update_opv_db.py) (Python standard library
+only - copy it into your project) downloads the newest release, checks it against `SHA256SUMS.txt`, and
+replaces your local copy, recording the version in `VERSION`:
+
+```bash
+python update_opv_db.py                    # CSV package into ./opv-db
+python update_opv_db.py --format sqlite    # SQLite database instead
+python update_opv_db.py --check            # exit code 10 when a newer release exists
+```
+
+```python
+from update_opv_db import ensure_latest
+folder = ensure_latest("opv-db")           # downloads only when a newer release exists
+```
+
 ## Included data files
 
 - `data/opv_devices.csv`: single consolidated device table. It contains the

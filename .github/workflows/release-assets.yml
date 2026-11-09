@@ -1,0 +1,79 @@
+# Attaches the downloadable data files to a release:
+#   opv-db-<v>-csv.zip     (data/, validation/, metadata/ and the documentation)
+#   opv-db-<v>-sqlite.zip  (the same tables in one SQLite database)
+#   SHA256SUMS.txt         (checked by scripts/update_opv_db.py)
+# The data come from the release tag itself; the data and validation tables are
+# checked against metadata/SHA256SUMS.txt first.
+name: Release assets
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Existing release tag (empty: latest release)"
+        required: false
+        default: ""
+permissions:
+  contents: write
+jobs:
+  assets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Which release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="${{ github.event.inputs.tag }}"
+          if [ -z "$TAG" ] && [[ "$GITHUB_REF" == refs/tags/* ]]; then TAG="$GITHUB_REF_NAME"; fi
+          if [ -z "$TAG" ]; then TAG=$(gh release view --json tagName -q .tagName); fi
+          echo "TAG=$TAG" >> "$GITHUB_ENV"
+          echo "VERSION=${TAG#v}" >> "$GITHUB_ENV"
+          git worktree add release-tree "$TAG"
+      - name: Build
+        run: python3 scripts/build_release_assets.py --src release-tree --version "$VERSION" --out dist
+      - name: Checksums and notes
+        run: |
+          (cd dist && sha256sum *.zip > SHA256SUMS.txt && cat SHA256SUMS.txt)
+          python3 - <<'PY'
+          import os, pathlib
+          tag, repo = os.environ["TAG"], os.environ["GITHUB_REPOSITORY"]
+          dist = pathlib.Path("dist")
+          sums = dict(reversed(l.split()) for l in (dist / "SHA256SUMS.txt").read_text().splitlines())
+          kind = {"csv": "CSV package - data/, validation/, metadata/, README, data dictionary, licence",
+                  "sqlite": "SQLite database - one table per CSV plus release_info"}
+          rows = []
+          for p in sorted(dist.glob("*.zip")):
+              k = "sqlite" if "sqlite" in p.name else "csv"
+              url = f"https://github.com/{repo}/releases/download/{tag}/{p.name}"
+              rows.append(f"| {kind[k]} | [`{p.name}`]({url}) | {p.stat().st_size / 1e6:.1f} MB | `{sums[p.name]}` |")
+          text = "\n".join([
+              "## Downloads", "",
+              "| Contents | File | Size | SHA-256 |", "|---|---|---:|---|", *rows, "",
+              "`SHA256SUMS.txt` lists the same checksums. The data and validation tables inside equal the files "
+              "of this tag and match `metadata/SHA256SUMS.txt`.", "",
+              "### Keeping a local copy up to date", "",
+              "[`scripts/update_opv_db.py`](https://github.com/" + repo + "/blob/main/scripts/update_opv_db.py) "
+              "(standard library only) downloads the newest release, verifies it against `SHA256SUMS.txt` and "
+              "replaces your copy: `python update_opv_db.py [--format sqlite] [--dest DIR]`; `--check` exits 10 "
+              "when a newer release exists; `from update_opv_db import ensure_latest` does the same from a notebook.",
+          ])
+          pathlib.Path("downloads.md").write_text(text + "\n")
+          PY
+      - uses: actions/upload-artifact@v7
+        with:
+          name: release-assets
+          path: |
+            dist/*
+            downloads.md
+      - name: Attach to the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release upload "$TAG" dist/* --clobber
+          gh release view "$TAG" --json body -q .body | sed '/^## Downloads$/,$d' > notes.md
+          cat downloads.md >> notes.md
+          gh release edit "$TAG" --notes-file notes.md
